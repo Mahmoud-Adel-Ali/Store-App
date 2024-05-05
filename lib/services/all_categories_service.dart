@@ -6,8 +6,13 @@ class AllCategoriesServices {
   Future<List<dynamic>> getAllCategories() async {
     http.Response response = await http
         .get(Uri.parse("https://fakestoreapi.com/products/categories"));
-    List<dynamic> categories = jsonDecode(response.body);
+    if (response.statusCode == 200) {
+      List<dynamic> categories = jsonDecode(response.body);
 
-    return categories;
+      return categories;
+    } else {
+      throw Exception(
+          'Failed to load products , problem with status code ${response.statusCode}');
+    }
   }
 }

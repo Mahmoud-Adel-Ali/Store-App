@@ -7,11 +7,16 @@ class GetAllProduct {
   Future<List<ProductModel>> getProducts() async {
     http.Response response =
         await http.get(Uri.parse("https://fakestoreapi.com/products"));
-    List<ProductModel> products = [];
-    List<dynamic> data = json.decode(response.body);
-    for (int i = 0; i < data.length; i++) {
-      products.add(ProductModel.fromJson(data[i]));
+    if (response.statusCode == 200) {
+      List<ProductModel> products = [];
+      List<dynamic> data = json.decode(response.body);
+      for (int i = 0; i < data.length; i++) {
+        products.add(ProductModel.fromJson(data[i]));
+      }
+      return products;
+    } else {
+      throw Exception(
+          'Failed to load products , problem with status code ${response.statusCode}');
     }
-    return products;
   }
 }
