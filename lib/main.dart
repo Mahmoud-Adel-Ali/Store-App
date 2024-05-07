@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -116,7 +117,21 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () async {
+          http.Response response = await http
+              .post(Uri.parse('https://fakestoreapi.com/products'), body: {
+            "id": '21',
+            "title": "test",
+            "price": "19.5",
+            "description": "lorem ipsum set",
+            "image": "https://i.pravatar.cc",
+            "category": "electronic"
+          } , headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json',
+          });
+          debugPrint(response.body);
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
