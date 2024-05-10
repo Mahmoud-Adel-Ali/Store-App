@@ -31,6 +31,6 @@ class Api {
       return data;
     }
     throw Exception(
-        'there is a problem with status code ${response.statusCode}');
+        'there is a problem with status code ${response.statusCode} with this body => ${jsonDecode(response.body)}');
   }
 }
