@@ -22,7 +22,10 @@ class Api {
     Map<String, String> headers = {};
 
     if (token != null) {
-      headers['Authorization'] = 'Bearer $token';
+      // headers['Authorization'] = 'Bearer $token';
+      headers.addAll({
+        'Authorization': 'Bearer $token',
+      });
     }
     http.Response response =
         await http.post(Uri.parse(url), body: body, headers: headers);
