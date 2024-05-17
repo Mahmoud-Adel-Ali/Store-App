@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:store_app/widgets/custom_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -27,71 +28,19 @@ class HomePage extends StatelessWidget {
             ),
           ]),
       body: Center(
-        child: Stack(
-          clipBehavior: Clip.none,
-          // overflow:OverflowBar.visible,
-          children: [
-            Container(
-              height: 150,
-              width: 220,
-              decoration: BoxDecoration(boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.1),
-                  spreadRadius: 0,
-                  blurRadius: 40,
-                  offset: const Offset(10, 10), // changes position of shadow
-                ),
-              ]),
-              child: Card(
-                color: Colors.white.withOpacity(1),
-                elevation: 12,
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Hand pag TY",
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 16,
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "\$ 225",
-                            style: TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.favorite,
-                              color: Colors.red,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 16, right: 16,top: 65),
+          child: GridView.builder(
+            clipBehavior: Clip.none,
+            itemCount: 11,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 1.4,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 100,
             ),
-            Positioned(
-              right: 10,
-              top: -50,
-              child: Image.network(
-                'https://tse4.mm.bing.net/th?id=OIP.9JYSaACGCOqGQEE-BrI5QQHaHa&pid=Api&P=0&h=220',
-                height: 100,
-              ),
-            )
-          ],
+            itemBuilder: (context, index) => CustomCard(),
+          ),
         ),
       ),
     );
