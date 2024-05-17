@@ -26,60 +26,73 @@ class HomePage extends StatelessWidget {
               onPressed: () {},
             ),
           ]),
-      body: Column(
-        children: [
-          Container(
-            height: 130,
-            width: 220,
-            decoration: BoxDecoration(boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.1),
-                spreadRadius: 0,
-                blurRadius: 40,
-                offset: const Offset(10, 10), // changes position of shadow
-              ),
-            ]),
-            child: Card(
-              color: Colors.white.withOpacity(1),
-              elevation: 12,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 16),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Hand pag TY",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 16,
+      body: Center(
+        child: Stack(
+          clipBehavior: Clip.none,
+          // overflow:OverflowBar.visible,
+          children: [
+            Container(
+              height: 150,
+              width: 220,
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.1),
+                  spreadRadius: 0,
+                  blurRadius: 40,
+                  offset: const Offset(10, 10), // changes position of shadow
+                ),
+              ]),
+              child: Card(
+                color: Colors.white.withOpacity(1),
+                elevation: 12,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Hand pag TY",
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 16,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "\$ 225",
-                          style: TextStyle(
-                            fontSize: 16,
+                      SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "\$ 225",
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
                           ),
-                        ),
-                        IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.favorite,
-                            color: Colors.red,
+                          IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.favorite,
+                              color: Colors.red,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          )
-        ],
+            Positioned(
+              right: 10,
+              top: -50,
+              child: Image.network(
+                'https://tse4.mm.bing.net/th?id=OIP.9JYSaACGCOqGQEE-BrI5QQHaHa&pid=Api&P=0&h=220',
+                height: 100,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
