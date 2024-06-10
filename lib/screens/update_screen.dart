@@ -1,10 +1,21 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:store_app/widgets/custom_linear_button.dart';
 import 'package:store_app/widgets/custom_text_form_feild.dart';
 
 class UpdateScreen extends StatelessWidget {
-  const UpdateScreen({super.key});
+  UpdateScreen({super.key});
   static String id = 'update screen';
+
+  String? productName;
+
+  String? price;
+
+  String? description;
+
+  String? image;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,13 +32,33 @@ class UpdateScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                CustomTextFormField(hintText: 'product name'),
+                CustomTextFormField(
+                  hintText: 'product name',
+                  onChange: (data) {
+                    productName = data;
+                  },
+                ),
                 const SizedBox(height: 20),
-                CustomTextFormField(hintText: 'price'),
+                CustomTextFormField(
+                  hintText: 'price',
+                  onChange: (data) {
+                    price = data;
+                  },
+                ),
                 const SizedBox(height: 20),
-                CustomTextFormField(hintText: 'description'),
+                CustomTextFormField(
+                  hintText: 'description',
+                  onChange: (data) {
+                    description = data;
+                  },
+                ),
                 const SizedBox(height: 20),
-                CustomTextFormField(hintText: 'image'),
+                CustomTextFormField(
+                  hintText: 'image',
+                  onChange: (data) {
+                    image = data;
+                  },
+                ),
                 const SizedBox(height: 50),
                 CustomLinearButton(
                   onPressed: () {},

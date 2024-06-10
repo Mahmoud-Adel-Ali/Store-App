@@ -12,7 +12,7 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, UpdateScreen.id);
+        Navigator.pushNamed(context, UpdateScreen.id,arguments: product);
       },
       child: Stack(
         clipBehavior: Clip.none,
