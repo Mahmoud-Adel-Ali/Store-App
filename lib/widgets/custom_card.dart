@@ -12,6 +12,7 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        // navigate and passing data to update screen
         Navigator.pushNamed(context, UpdateScreen.id,arguments: product);
       },
       child: Stack(

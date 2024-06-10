@@ -1,6 +1,8 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:store_app/models/product_model.dart';
+import 'package:store_app/services/update_product.dart';
 import 'package:store_app/widgets/custom_linear_button.dart';
 import 'package:store_app/widgets/custom_text_form_feild.dart';
 
@@ -18,6 +20,8 @@ class UpdateScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ProductModel product =
+        ModalRoute.of(context)!.settings.arguments as ProductModel;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -61,7 +65,15 @@ class UpdateScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 50),
                 CustomLinearButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    UpdateProduct().updateProduct(
+                        id: product.id,
+                        title: productName!,
+                        price: price!,
+                        desc: description!,
+                        image: image!,
+                        category: product.category);
+                  },
                   child: const Text(
                     "Update",
                     style: TextStyle(color: Colors.white, fontSize: 24),

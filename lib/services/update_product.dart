@@ -5,7 +5,7 @@ import 'package:store_app/models/product_model.dart';
 class UpdateProduct{
 
   Future<ProductModel> updateProduct({
-    required String id,
+    required int id,
     required String title,
     required String price,
     required String desc,
