@@ -1,7 +1,7 @@
 import 'package:store_app/models/rating_model.dart';
 
 class ProductModel {
-  final int id;
+  final dynamic id;
   final String title;
   final num price;
   final String description;
